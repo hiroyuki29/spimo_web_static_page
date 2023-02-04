@@ -1,5 +1,22 @@
 ///プライバシーポリシー
 
+enum PrivacyPolicyLabel {
+  difinition(text: '個人情報の定義'),
+  getMethod(text: '個人情報の取得方法'),
+  objective(text: '個人情報の利用目的'),
+  objectiveChange(text: '利用目的の変更'),
+  thirdPartyProvision(text: '個人情報の第三者提供'),
+  disclosure(text: '個人情報の開示'),
+  removeAndCorrection(text: '個人情報の訂正・削除'),
+  change(text: 'プライバシーポリシーの変更'),
+  inquiry(text: 'お問い合わせ'),
+  establishment(text: '制定・施行・改訂');
+
+  const PrivacyPolicyLabel({required this.text});
+
+  final String text;
+}
+
 Map<String, List<String>> privacyPolicyContents = {
   PrivacyPolicyLabel.difinition.text: [
     '本プライバシーポリシーにおける、「個人情報」とは、個人情報の保護に関する法律規定される「個人情報」及び本サービスの利用に係るパスワードを指します。'
@@ -48,20 +65,3 @@ Map<String, List<String>> privacyPolicyContents = {
     '2022年２月３日 制定・施行',
   ]
 };
-
-enum PrivacyPolicyLabel {
-  difinition(text: '個人情報の定義'),
-  getMethod(text: '個人情報の取得方法'),
-  objective(text: '個人情報の利用目的'),
-  objectiveChange(text: '利用目的の変更'),
-  thirdPartyProvision(text: '個人情報の第三者提供'),
-  disclosure(text: '個人情報の開示'),
-  removeAndCorrection(text: '個人情報の訂正・削除'),
-  change(text: 'プライバシーポリシーの変更'),
-  inquiry(text: 'お問い合わせ'),
-  establishment(text: '制定・施行・改訂');
-
-  const PrivacyPolicyLabel({required this.text});
-
-  final String text;
-}
