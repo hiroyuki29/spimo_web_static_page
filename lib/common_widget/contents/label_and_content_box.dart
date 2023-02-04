@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:spimo_static_page/common_widget/color/color.dart';
 import 'package:spimo_static_page/common_widget/sized_box/constant_sized_box.dart';
-import 'package:spimo_static_page/contents/privacy_policy/privacy_policy_contents.dart';
+import 'package:spimo_static_page/features/privacy_policy/contents/privacy_policy_contents.dart';
 
 class LabelAndContentBox extends StatelessWidget {
-  const LabelAndContentBox({
-    Key? key,
-    required this.privacyPolicyLabel,
-  }) : super(key: key);
+  const LabelAndContentBox(
+      {Key? key, required this.contentLabel, required this.contentsMap})
+      : super(key: key);
 
-  final PrivacyPolicyLabel privacyPolicyLabel;
+  final CustomEnum contentLabel;
+  final Map<String, dynamic> contentsMap;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Label(title: privacyPolicyLabel.text),
+        Label(title: contentLabel.text),
         sizedBoxH8,
         ContentsBox(
-          contents: privacyPolicyContents[privacyPolicyLabel.text]!,
+          contents: contentsMap[contentLabel.text]!,
         ),
         sizedBoxH16
       ],
@@ -41,7 +41,7 @@ class Label extends StatelessWidget {
       decoration: const BoxDecoration(border: Border(bottom: (BorderSide()))),
       child: Text(
         title,
-        style: const TextStyle(fontSize: 16),
+        style: Theme.of(context).textTheme.subtitle2,
       ),
     );
   }
@@ -55,12 +55,17 @@ class ContentsBox extends StatelessWidget {
 
   final List<String> contents;
 
-  List<Widget> stringToWidget(List<String> contents) {
-    return contents.map((content) => Text(content)).toList();
-  }
-
   @override
   Widget build(BuildContext context) {
+    List<Widget> stringToWidget(List<String> contents) {
+      return contents
+          .map((content) => Text(
+                content,
+                style: Theme.of(context).textTheme.bodyText2,
+              ))
+          .toList();
+    }
+
     return DecoratedBox(
       decoration: const BoxDecoration(
           color: white, borderRadius: BorderRadius.all(Radius.circular(8))),

@@ -1,6 +1,11 @@
+abstract class CustomEnum implements Enum {
+  CustomEnum({required this.text});
+  final String text;
+}
+
 ///プライバシーポリシー
 
-enum PrivacyPolicyLabel {
+enum PrivacyPolicyLabel implements CustomEnum {
   difinition(text: '個人情報の定義'),
   getMethod(text: '個人情報の取得方法'),
   objective(text: '個人情報の利用目的'),
@@ -14,8 +19,13 @@ enum PrivacyPolicyLabel {
 
   const PrivacyPolicyLabel({required this.text});
 
+  @override
   final String text;
 }
+
+const List<String> privacyPolicyForeword = [
+  '本アプリサービス運営者(以下運営者)は、以下のとおり個人情報保護方針を定め、個人情報保護の重要性の認識と取組みを徹底することにより、個人情報の保護を推進致します。',
+];
 
 Map<String, List<String>> privacyPolicyContents = {
   PrivacyPolicyLabel.difinition.text: [

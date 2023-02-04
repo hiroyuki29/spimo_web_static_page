@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spimo_static_page/common_widget/app_bar/common_app_bar.dart';
-import 'package:spimo_static_page/common_widget/color/color.dart';
 import 'package:spimo_static_page/common_widget/contents/label_and_content_box.dart';
 import 'package:spimo_static_page/common_widget/sized_box/constant_sized_box.dart';
-import 'package:spimo_static_page/contents/privacy_policy/privacy_policy_contents.dart';
+import 'package:spimo_static_page/features/privacy_policy/contents/privacy_policy_contents.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({super.key});
@@ -11,45 +10,63 @@ class PrivacyPolicyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundGray,
       appBar: CommonAppBar(context: context, title: 'spiMo'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               sizedBoxH24,
               Text(
                 'プライバシーポリシー',
-                style: TextStyle(fontSize: 20),
+                style: Theme.of(context).textTheme.subtitle1,
               ),
               sizedBoxH8,
-              ContentsBox(
-                contents: [
-                  '本アプリサービス運営者(以下運営者)は、以下のとおり個人情報保護方針を定め、個人情報保護の重要性の認識と取組みを徹底することにより、個人情報の保護を推進致します。'
-                ],
+              const ContentsBox(
+                contents: privacyPolicyForeword,
               ),
               sizedBoxH24,
               LabelAndContentBox(
-                  privacyPolicyLabel: PrivacyPolicyLabel.difinition),
+                contentLabel: PrivacyPolicyLabel.difinition,
+                contentsMap: privacyPolicyContents,
+              ),
               LabelAndContentBox(
-                  privacyPolicyLabel: PrivacyPolicyLabel.getMethod),
+                contentLabel: PrivacyPolicyLabel.getMethod,
+                contentsMap: privacyPolicyContents,
+              ),
               LabelAndContentBox(
-                  privacyPolicyLabel: PrivacyPolicyLabel.objective),
+                contentLabel: PrivacyPolicyLabel.objective,
+                contentsMap: privacyPolicyContents,
+              ),
               LabelAndContentBox(
-                  privacyPolicyLabel: PrivacyPolicyLabel.objectiveChange),
+                contentLabel: PrivacyPolicyLabel.objectiveChange,
+                contentsMap: privacyPolicyContents,
+              ),
               LabelAndContentBox(
-                  privacyPolicyLabel: PrivacyPolicyLabel.thirdPartyProvision),
+                contentLabel: PrivacyPolicyLabel.thirdPartyProvision,
+                contentsMap: privacyPolicyContents,
+              ),
               LabelAndContentBox(
-                  privacyPolicyLabel: PrivacyPolicyLabel.disclosure),
+                contentLabel: PrivacyPolicyLabel.disclosure,
+                contentsMap: privacyPolicyContents,
+              ),
               LabelAndContentBox(
-                  privacyPolicyLabel: PrivacyPolicyLabel.removeAndCorrection),
-              LabelAndContentBox(privacyPolicyLabel: PrivacyPolicyLabel.change),
+                contentLabel: PrivacyPolicyLabel.removeAndCorrection,
+                contentsMap: privacyPolicyContents,
+              ),
               LabelAndContentBox(
-                  privacyPolicyLabel: PrivacyPolicyLabel.inquiry),
+                contentLabel: PrivacyPolicyLabel.change,
+                contentsMap: privacyPolicyContents,
+              ),
               LabelAndContentBox(
-                  privacyPolicyLabel: PrivacyPolicyLabel.establishment),
+                contentLabel: PrivacyPolicyLabel.inquiry,
+                contentsMap: privacyPolicyContents,
+              ),
+              LabelAndContentBox(
+                contentLabel: PrivacyPolicyLabel.establishment,
+                contentsMap: privacyPolicyContents,
+              ),
             ],
           ),
         ),
