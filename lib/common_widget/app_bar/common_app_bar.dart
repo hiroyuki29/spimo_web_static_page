@@ -22,6 +22,7 @@ AppBar CommonAppBar({
           title,
           style: Theme.of(context).textTheme.headline1,
         ),
+        const SizedBox(width: 50),
       ],
     ),
     leading: Navigator.of(context).canPop()

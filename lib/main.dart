@@ -3,8 +3,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:go_router/go_router.dart';
 import 'package:spimo_static_page/common_widget/app_bar/common_app_bar.dart';
-import 'package:spimo_static_page/common_widget/color/color.dart';
 import 'package:spimo_static_page/common_widget/sized_box/constant_sized_box.dart';
+import 'package:spimo_static_page/common_widget/theme/custom_theme.dart';
 import 'package:spimo_static_page/routing/app_router.dart';
 
 void main() {
@@ -22,35 +22,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp.router(
       title: 'spiMo',
-      theme: ThemeData(
-        useMaterial3: true,
-        appBarTheme: const AppBarTheme(
-          color: white,
-          surfaceTintColor: white,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-          surfaceTintColor: white,
-        )),
-        scaffoldBackgroundColor: backgroundGray,
-        colorScheme: ColorScheme.fromSwatch(
-          brightness: Brightness.light,
-          primarySwatch: primaryDarkSwatch,
-          accentColor: accentSwatch,
-        ),
-        textTheme: const TextTheme(
-          headline1: TextStyle(
-              fontSize: 50, color: primaryDark, fontWeight: FontWeight.bold),
-          subtitle1: TextStyle(
-              fontSize: 24, color: primaryDark, fontWeight: FontWeight.bold),
-          subtitle2: TextStyle(
-              fontSize: 18, color: primaryDark, fontWeight: FontWeight.bold),
-          bodyText1: TextStyle(
-              fontSize: 16, color: primaryDark, fontWeight: FontWeight.normal),
-          bodyText2: TextStyle(
-              fontSize: 12, color: primaryDark, fontWeight: FontWeight.normal),
-        ),
-      ),
+      theme: spimoTheme,
       routerConfig: router,
       locale: jaLocale,
       localizationsDelegates: const [
@@ -85,6 +57,11 @@ class HomeScreen extends StatelessWidget {
               PrimaryButton(
                 appRoute: AppRoute.privacyPolicy,
                 title: 'プライバシーポリシー',
+              ),
+              sizedBoxH24,
+              PrimaryButton(
+                appRoute: AppRoute.inquiry,
+                title: 'お問い合わせ',
               ),
             ],
           ),
