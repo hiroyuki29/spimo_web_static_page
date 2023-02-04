@@ -47,10 +47,9 @@ class _InquiryScreenState extends State<InquiryScreen> {
             sizedBoxH8,
             SizedBox(
               width: double.infinity,
-              height: 1000,
+              height: MediaQuery.of(context).size.height * 0.8,
               child: HtmlElementView(viewType: _viewId),
             ),
-            sizedBoxH24,
           ],
         ),
       ),
